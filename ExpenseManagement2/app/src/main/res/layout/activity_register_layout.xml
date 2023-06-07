@@ -67,7 +67,7 @@
                     android:background="@drawable/edit_text_border"
                     android:hint="Confirm Password" />
                 <EditText
-                    android:drawableLeft="@drawable/ic_action_password"
+                    android:drawableLeft="@drawable/ic_action_account"
                     android:drawablePadding="10dp"
                     android:paddingLeft="5dp"
                     android:layout_height="50dp"
@@ -76,7 +76,7 @@
                     android:background="@drawable/edit_text_border"
                     android:hint="Username" />
                 <EditText
-                    android:drawableLeft="@drawable/ic_action_password"
+                    android:drawableLeft="@drawable/ic_action_money"
                     android:drawablePadding="10dp"
                     android:paddingLeft="5dp"
                     android:layout_height="50dp"
