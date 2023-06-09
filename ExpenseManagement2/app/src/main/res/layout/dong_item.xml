@@ -17,4 +17,5 @@
         android:textSize="30sp"
         android:paddingLeft="10dp"
         android:id="@+id/itemName" />
+
 </LinearLayout>
