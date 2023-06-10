@@ -2,19 +2,37 @@ package com.example.expensemanagement.Model;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Account {
+public class Account implements Serializable {
+    private String _id;
     private String Email;
     private String Pasword;
     private String Username;
     private Double Money;
+
+    public Account(String _id, String email, String pasword, String username, Double money) {
+        this._id = _id;
+        Email = email;
+        Pasword = pasword;
+        Username = username;
+        Money = money;
+    }
 
     public Account(String email, String pasword, String username, Double money) {
         Email = email;
         Pasword = pasword;
         Username = username;
         Money = money;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getEmail() {

@@ -103,7 +103,11 @@
                         </org.eazegraph.lib.charts.PieChart>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-
+                <Button
+                    android:id="@+id/btnAddTransaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Them giao dich" />
                 <ListView
                     android:layout_marginTop="20dp"
                     android:id="@+id/listViewTransaction"
@@ -118,19 +122,50 @@
             android:fitsSystemWindows="true"
             android:id="@+id/navigationView">
             <LinearLayout
+                android:layout_marginTop="40dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-                <ListView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:id="@+id/navListView" />
+                <LinearLayout
+                    android:id="@+id/profile"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher"/>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/txtName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="John"/>
+                        <TextView
+                            android:id="@+id/txtMoney"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tien: 2.300000"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
                 <Button
+                    android:gravity="center"
                     android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Dang Nhap" />
+                <Button
+                    android:gravity="center"
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dang Xuat" />
             </LinearLayout>
 
         </com.google.android.material.navigation.NavigationView>

@@ -86,33 +86,7 @@ public class HistoryActivity extends AppCompatActivity {
         );
         requestQueue.add(jsonArrayRequest);
     }
-    private void PostData(String url) {
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(HistoryActivity.this, response, Toast.LENGTH_SHORT).show();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        }) {
-            @Nullable
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("email", "xuanloiabc");
-                params.put("password", "123");
-                params.put("username", "abc");
-                params.put("money", "20000");
-                return params;
-            }
-        };
-        requestQueue.add(stringRequest);
-    }
     private void actionToolBar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
