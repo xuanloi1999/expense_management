@@ -5,11 +5,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.expensemanagement.Adapter.MenuAdapter;
+import com.example.expensemanagement.Model.Account;
 import com.example.expensemanagement.Model.ItemMenu;
 import com.google.android.material.navigation.NavigationView;
 
@@ -23,6 +28,10 @@ public class ProfileActivity extends AppCompatActivity {
 
     ArrayList<ItemMenu> itemMenus;
     MenuAdapter adapter;
+
+    EditText edtEmail, edtPassword, edtUsername, edtMoney;
+    Button btnLogout;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +40,34 @@ public class ProfileActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
         listView = findViewById(R.id.navListView);
+        edtEmail = findViewById(R.id.edtEmail);
+        edtPassword = findViewById(R.id.edtPassword);
+        edtUsername = findViewById(R.id.edtUsername);
+        edtMoney = findViewById(R.id.edtMoney);
+        btnLogout = findViewById(R.id.btnLogout);
 
+        //Intent
+        Intent intent = getIntent();
+        Account account = (Account) intent.getSerializableExtra("account");
+        if(account!= null){
+            edtEmail.setText(account.getEmail());
+            edtPassword.setText(account.getPasword());
+            edtUsername.setText(account.getUsername());
+            edtMoney.setText(account.getMoney()+"");
+        }
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedPreferences = getSharedPreferences("LoginData", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.remove("username");
+                editor.remove("password");
+                editor.commit();
+                Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
         actionToolBar();
         actionMenu();
     }
