@@ -156,6 +156,18 @@
                 </LinearLayout>
                 <Button
                     android:gravity="center"
+                    android:id="@+id/btnHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trang Chu" />
+                <Button
+                    android:gravity="center"
+                    android:id="@+id/btnCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Danh Muc" />
+                <Button
+                    android:gravity="center"
                     android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

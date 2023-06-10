@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -53,7 +54,8 @@ public class HomeActivity extends AppCompatActivity {
     TransactionAdapter transactionAdapter;
     PieChart pieChart;
     LinearLayout profile;
-    Button btnExpense, btnIncome, btnDay, btnMonth, btnYear, btnLogin, btnLogout, btnAddTransaction;
+    TextView txtName, txtMoney;
+    Button btnExpense, btnIncome, btnDay, btnMonth, btnYear, btnLogin, btnLogout, btnAddTransaction, btnCategory,btnHome;
     ListView listViewTransaction;
     SharedPreferences sharedPreferences;
     String url = "https://expense-managementap.up.railway.app/transaction?accountID=";
@@ -76,6 +78,11 @@ public class HomeActivity extends AppCompatActivity {
         btnLogout = findViewById(R.id.btnLogout);
         btnAddTransaction = findViewById(R.id.btnAddTransaction);
         profile = findViewById(R.id.profile);
+        txtName = findViewById(R.id.txtName);
+        txtMoney = findViewById(R.id.txtMoney);
+        btnHome = findViewById(R.id.btnHome);
+        btnCategory = findViewById(R.id.btnCategory);
+        txtMoney = findViewById(R.id.txtMoney);
 
         transactions = new ArrayList<>();
         transactionAdapter = new TransactionAdapter(this,R.layout.transaction_item, transactions );
@@ -86,12 +93,31 @@ public class HomeActivity extends AppCompatActivity {
         if(account != null){
             btnLogin.setVisibility(View.INVISIBLE);
             btnLogout.setVisibility(View.VISIBLE);
+            txtMoney.setText(account.getMoney().toString());
+            txtName.setText(account.getUsername().toString());
             GetTransactionData(url+ account.get_id() +"&typeTransaction=EXPENSE");
         }else{
             profile.setVisibility(View.INVISIBLE);
             btnAddTransaction.setVisibility(View.INVISIBLE);
             btnLogout.setVisibility(View.INVISIBLE);
         }
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(HomeActivity.this, HomeActivity.class);
+                intent1.putExtra("account", account);
+                startActivity(intent1);
+            }
+        });
+
+        btnCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(HomeActivity.this, CategoryActivity.class);
+                intent1.putExtra("account", account);
+                startActivity(intent1);
+            }
+        });
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,6 +137,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(HomeActivity.this, TransactionActivity.class);
+                intent1.putExtra("account", account);
                 startActivity(intent1);
             }
         });
