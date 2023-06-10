@@ -3,22 +3,59 @@ package com.example.expensemanagement.Model;
 import java.util.Date;
 
 public class Transaction {
+    private String _id;
     private Double Expense;
-    private String Category;
+    private String CategoryID;
     private Date TransactionAt;
     private String Note;
     private TypeTransaction TypeTransaction;
     private String AccountID;
     private String GroupID;
 
+    public Transaction(String _id, Double expense, String category, Date transactionAt, String note, com.example.expensemanagement.Model.TypeTransaction typeTransaction, String accountID) {
+        this._id = _id;
+        Expense = expense;
+        CategoryID = category;
+        TransactionAt = transactionAt;
+        Note = note;
+        TypeTransaction = typeTransaction;
+        AccountID = accountID;
+    }
+
+    public Transaction(String _id, Double expense, String categoryID, String note, com.example.expensemanagement.Model.TypeTransaction typeTransaction, String accountID) {
+        this._id = _id;
+        Expense = expense;
+        CategoryID = categoryID;
+        Note = note;
+        TypeTransaction = typeTransaction;
+        AccountID = accountID;
+    }
+
+    public Transaction(Double expense, String category, Date transactionAt, String note, com.example.expensemanagement.Model.TypeTransaction typeTransaction, String accountID) {
+        Expense = expense;
+        CategoryID = category;
+        TransactionAt = transactionAt;
+        Note = note;
+        TypeTransaction = typeTransaction;
+        AccountID = accountID;
+    }
+
     public Transaction(Double expense, String category, Date transactionAt, String note, com.example.expensemanagement.Model.TypeTransaction typeTransaction, String accountID, String groupID) {
         Expense = expense;
-        Category = category;
+        CategoryID = category;
         TransactionAt = transactionAt;
         Note = note;
         TypeTransaction = typeTransaction;
         AccountID = accountID;
         GroupID = groupID;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public Double getExpense() {
@@ -30,11 +67,11 @@ public class Transaction {
     }
 
     public String getCategory() {
-        return Category;
+        return CategoryID;
     }
 
     public void setCategory(String category) {
-        Category = category;
+        CategoryID = category;
     }
 
     public Date getTransactionAt() {
