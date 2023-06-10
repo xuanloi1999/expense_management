@@ -5,17 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Register_Layout">
-    <TextView
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="Dang Ky"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:background="#2196F3"
+    tools:context=".RegisterActivity">
 
-        android:textSize="50sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#2196F3"
+        android:gravity="center"
+        android:text="Dang Ky"
+        android:textColor="#fff"
+
+        android:textSize="50sp" />
 
     <LinearLayout
         android:layout_weight="3"
@@ -37,7 +38,22 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginBottom="10dp"
+                    android:src="@mipmap/ic_launcher" />
+                <TextView
+                    android:id="@+id/txtError"
+                    android:visibility="invisible"
+                    android:textColor="#F44336"
+                    android:padding="10dp"
+                    android:text="All field must be fill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
                 <EditText
+                    android:id="@+id/edtEmail"
                     android:drawableLeft="@drawable/ic_action_mail"
                     android:drawablePadding="10dp"
                     android:paddingLeft="5dp"
@@ -48,6 +64,8 @@
                     android:hint="Email" />
 
                 <EditText
+                    android:id="@+id/edtPassword"
+                    android:inputType="textPassword"
                     android:drawableLeft="@drawable/ic_action_password"
                     android:drawablePadding="10dp"
                     android:paddingLeft="5dp"
@@ -58,6 +76,8 @@
                     android:hint="Password" />
 
                 <EditText
+                    android:id="@+id/edtConfirmPassword"
+                    android:inputType="textPassword"
                     android:drawableLeft="@drawable/ic_action_password"
                     android:drawablePadding="10dp"
                     android:paddingLeft="5dp"
@@ -67,6 +87,7 @@
                     android:background="@drawable/edit_text_border"
                     android:hint="Confirm Password" />
                 <EditText
+                    android:id="@+id/edtUsername"
                     android:drawableLeft="@drawable/ic_action_account"
                     android:drawablePadding="10dp"
                     android:paddingLeft="5dp"
@@ -76,6 +97,7 @@
                     android:background="@drawable/edit_text_border"
                     android:hint="Username" />
                 <EditText
+                    android:id="@+id/edtMoney"
                     android:drawableLeft="@drawable/ic_action_money"
                     android:drawablePadding="10dp"
                     android:paddingLeft="5dp"
@@ -85,6 +107,7 @@
                     android:background="@drawable/edit_text_border"
                     android:hint="Money" />
                 <Button
+                    android:id="@+id/btnRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
